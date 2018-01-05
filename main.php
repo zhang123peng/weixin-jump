@@ -109,9 +109,7 @@ class Game
         $this->findTop();
         list($topR, $topG, $topB) = $this->top_color;
         if ($topR == 255 && $topG == 255 && $topB == 255) {
-            $this->findBottom();
-            $midH = $this->bottom_xy[1] - $this->top_xy[1];
-            $distance = distance($this->HX, $this->HY, $this->top_xy[0], $this->top_xy[1] + $midH);
+            $distance = distance($this->HX, $this->HY, $this->top_xy[0], ($this->top_xy[1] + $this->HW + 5));
         } else {
             list($dx, $dy, $dr, $dg, $b) = $this->pos > 0 ? $this->findRight() : $this->findLeft();
             $distance = distance($this->HX, $this->HY, $this->top_xy[0], $dy);
