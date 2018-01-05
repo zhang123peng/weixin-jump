@@ -182,6 +182,12 @@ class Game
                 }
             }
         }
+        //找到顶点之后，把Y轴再向下移动2哥像素，防止找到的边界颜色并不是顶面整整的颜色
+        $rgb = imagecolorat($this->im, $x, $y + 2);
+        $r = ($rgb >> 16) & 0xFF;
+        $g = ($rgb >> 8) & 0xFF;
+        $b = $rgb & 0xFF;
+        $this->top_color = [$r, $g, $b];
     }
 
     /**
